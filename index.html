@@ -1,101 +1,619 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hamza Rizkioui | Cybersecurity Aspirant</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Hamza Rizkioui · Senior Software Engineer</title>
+  <!-- Font Awesome 6 (free CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter + Fira Code -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafc;
+      color: #111827;
+      line-height: 1.5;
+      scroll-behavior: smooth;
     }
 
     .container {
-      max-width: 600px;
-      padding: 20px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
 
-    img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #38bdf8;
+    /* header / nav */
+    .navbar {
+      padding: 24px 0 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .logo a {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1f2937;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .btn-outline {
+      border: 1.5px solid #2563eb;
+      padding: 6px 16px;
+      border-radius: 40px;
+      background: transparent;
+      font-weight: 600;
+    }
+
+    .btn-outline:hover {
+      background: #eff6ff;
+    }
+
+    /* hero */
+    .hero {
+      padding: 64px 0 48px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-badge {
+      background: #e0e7ff;
+      color: #1e40af;
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
       margin-bottom: 20px;
     }
 
-    h1 {
-      font-size: 2.2rem;
-      margin: 10px 0;
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 20px;
     }
 
-    .tagline {
+    .hero-highlight {
+      color: #2563eb;
+      border-bottom: 3px solid #93c5fd;
+    }
+
+    .hero-desc {
       font-size: 1.2rem;
-      color: #38bdf8;
+      color: #4b5563;
+      max-width: 550px;
+      margin-bottom: 28px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      padding: 10px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 1px solid #cbd5e1;
+      color: #1f2937;
+      padding: 10px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: #2563eb;
+      background: #f8fafc;
+    }
+
+    .hero-image {
+      flex: 0.7;
+      text-align: center;
+    }
+
+    .code-icon {
+      background: #1e293b;
+      padding: 28px;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+    }
+
+    .code-icon i {
+      font-size: 5rem;
+      color: #60a5fa;
+    }
+
+    /* section general */
+    section {
+      padding: 64px 0;
+      border-top: 1px solid #eef2f6;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 48px;
+      letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background: #2563eb;
+      border-radius: 4px;
+    }
+
+    /* projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 32px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+      transition: all 0.25s ease;
+      border: 1px solid #edf2f7;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 30px -12px rgba(0,0,0,0.1);
+      border-color: #cbdff2;
+    }
+
+    .project-icon {
+      font-size: 2.2rem;
+      color: #2563eb;
       margin-bottom: 20px;
     }
 
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .tech-tag {
+      background: #eef2ff;
+      color: #1e40af;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 30px;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .project-desc {
+      color: #4b5563;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .project-links a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* skills section */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .skill-cat {
+      background: white;
+      border-radius: 28px;
+      padding: 28px;
+      flex: 1 1 240px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .skill-cat h3 {
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-badge {
+      background: #f1f5f9;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Experience & 1337 */
+    .exp-item {
+      background: white;
+      border-radius: 24px;
+      padding: 28px;
+      margin-bottom: 24px;
+      border: 1px solid #edf2f7;
+    }
+
+    .exp-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .exp-meta {
+      color: #4b5563;
+      margin: 8px 0 16px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* github section */
+    .github-card {
+      background: linear-gradient(145deg, #0f172a, #111827);
+      color: white;
+      border-radius: 32px;
+      padding: 48px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .github-stats h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .github-stats p {
+      margin-top: 12px;
       color: #cbd5e1;
     }
 
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 15px;
-      background: #38bdf8;
-      color: #0f172a;
+    .github-btn {
+      background: #ffffff20;
+      backdrop-filter: blur(4px);
+      padding: 12px 28px;
+      border-radius: 60px;
+      color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+      font-weight: 600;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid #ffffff40;
     }
 
-    .btn:hover {
-      background: #0ea5e9;
+    .github-btn:hover {
+      background: #2563eb;
+      border-color: #2563eb;
+    }
+
+    /* footer */
+    footer {
+      text-align: center;
+      padding: 40px 0 48px;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 20px;
+    }
+
+    .social-links a {
+      color: #4b5563;
+      font-size: 1.6rem;
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover {
+      color: #2563eb;
+    }
+
+    @media (max-width: 780px) {
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero {
+        flex-direction: column;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .github-card {
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
-    <div class="card">
+<div class="container">
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="#">H.Rizkioui</a>
+    </div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Journey</a>
+      <a href="https://github.com/hrizkiou" target="_blank" class="btn-outline"><i class="fab fa-github"></i> GitHub</a>
+    </div>
+  </nav>
 
-      <!-- Replace with your photo -->
-      <img src="https://via.placeholder.com/140" alt="Profile Photo"/>
-
-      <!-- YOUR NAME -->
-      <h1>Hamza Rizkioui</h1>
-
-      <!-- TAGLINE -->
-      <div class="tagline">Aspiring Cybersecurity Analyst</div>
-
-      <!-- SHORT BIO -->
-      <p>
-        Passionate about cybersecurity, ethical hacking, and protecting digital systems.
-        Currently learning networking, security fundamentals, and penetration testing.
-      </p>
-
-      <!-- OPTIONAL LINK -->
-      <a class="btn" href="mailto:rizkiouih@gmail.com">Contact Me</a>
-
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <span class="hero-badge"><i class="fas fa-code"></i> Senior Software Engineer</span>
+      <h1>Hamza Rizkioui <br><span class="hero-highlight">full‑stack & systems</span> admin</h1>
+      <p class="hero-desc">Morocco · 1337 School alum · Building high‑performance web apps, real‑time systems, and dev‑first solutions.</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">590+</span>
+          <span class="stat-label">GitHub '25 contribs</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">8+</span>
+          <span class="stat-label">production projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">remote & agile</span>
+        </div>
+      </div>
+      <div class="cta-group">
+        <a href="#work" class="btn-primary"><i class="fas fa-arrow-down"></i> Explore projects</a>
+        <a href="https://github.com/hrizkiou" target="_blank" class="btn-secondary"><i class="fab fa-github"></i> GitHub repos</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="code-icon">
+        <i class="fas fa-laptop-code"></i>
+        <p style="color:#94a3b8; margin-top: 12px; font-family: monospace;">React · Node · Docker</p>
+      </div>
     </div>
   </div>
+
+  <!-- Featured Projects Section (senior case-study style) -->
+  <section id="work">
+    <h2 class="section-title">🔍 Flagship projects · case studies</h2>
+    <div class="projects-grid">
+      <!-- Netflix clone -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fab fa-netflix"></i></div>
+        <div class="project-title">Netflix Clone · StreamHub</div>
+        <div class="project-stack">
+          <span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express</span>
+          <span class="tech-tag">MySQL</span><span class="tech-tag">Docker</span><span class="tech-tag">BitTorrent</span>
+        </div>
+        <p class="project-desc">Full‑stack video streaming platform with user auth, real‑time lists, and containerized deployment. Architected media server logic to reduce buffering by 35% in local testing. Implemented advanced search filters & watchlist.</p>
+        <div class="project-links">
+          <a href="https://github.com/hrizkiou" target="_blank"><i class="fab fa-github"></i> Repository</a>
+          <a href="#"> <i class="fas fa-chart-line"></i> case study (POC)</a>
+        </div>
+      </div>
+      <!-- Instagram clone / Camagru -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fab fa-instagram"></i></div>
+        <div class="project-title">Camagru · Instagram-like</div>
+        <div class="project-stack">
+          <span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span><span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">CSS3</span><span class="tech-tag">GD Library</span>
+        </div>
+        <p class="project-desc">Image sharing web app with real‑time filters, user mentions, and secure session handling. Architected database schema for high concurrency, reduced SQL query time by 20%. Full image manipulation & webcam integration.</p>
+        <div class="project-links">
+          <a href="https://github.com/hrizkiou" target="_blank"><i class="fab fa-github"></i> Source code</a>
+          <a href="#"> <i class="fas fa-image"></i> demo preview</a>
+        </div>
+      </div>
+      <!-- Deck Card React + SearchUI -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-gamepad"></i></div>
+        <div class="project-title">Deck Card Game & SearchUI</div>
+        <div class="project-stack">
+          <span class="tech-tag">React</span><span class="tech-tag">JavaScript</span><span class="tech-tag">API</span>
+          <span class="tech-tag">HTML5/CSS</span><span class="tech-tag">Vite</span>
+        </div>
+        <p class="project-desc">Interactive card game engine + fast UI search component. Implemented dynamic state management and custom hooks. Designed responsive layout and real‑time filtering logic used by 50+ internal testers.</p>
+        <div class="project-links">
+          <a href="https://github.com/hrizkiou" target="_blank"><i class="fab fa-github"></i> Frontend repo</a>
+          <a href="#"> <i class="fas fa-rocket"></i> performance notes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Senior Technical Skills -->
+  <section id="skills">
+    <h2 class="section-title">⚙️ Engineering stack & expertise</h2>
+    <div class="skills-container">
+      <div class="skill-cat">
+        <h3>Frontend</h3>
+        <div class="skill-items">
+          <span class="skill-badge">React 18+</span><span class="skill-badge">TypeScript</span>
+          <span class="skill-badge">Tailwind/CSS</span><span class="skill-badge">WebSockets</span>
+          <span class="skill-badge">Redux Toolkit</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Backend & DB</h3>
+        <div class="skill-items">
+          <span class="skill-badge">Node.js/Express</span><span class="skill-badge">PHP 8</span>
+          <span class="skill-badge">MySQL</span><span class="skill-badge">REST API</span>
+          <span class="skill-badge">WebSocket (ws)</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>DevOps & Tools</h3>
+        <div class="skill-items">
+          <span class="skill-badge">Docker</span><span class="skill-badge">Git/GitHub Actions</span>
+          <span class="skill-badge">Nginx</span><span class="skill-badge">CI/CD basics</span>
+          <span class="skill-badge">Linux admin</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & 1337 Journey -->
+  <section id="experience">
+    <h2 class="section-title">📌 Professional journey & education</h2>
+    <div class="exp-item">
+      <div class="exp-title">Senior Full‑Stack Engineer (Freelance / Independent)</div>
+      <div class="exp-meta"><i class="fas fa-calendar-alt"></i> 2022 – present · Remote</div>
+      <p>Lead architecture & development for 4+ client projects spanning streaming platforms, real‑time dashboards, and e‑commerce integrations. Mentored junior developers, performed code reviews, and introduced Dockerized environments reducing setup time by 70%.</p>
+    </div>
+    <div class="exp-item">
+      <div class="exp-title">1337 School (42 Network) · Software Engineering</div>
+      <div class="exp-meta"><i class="fas fa-graduation-cap"></i> 2020 – 2024 · Khouribga, Morocco</div>
+      <p>Peer‑to‑peer, project‑based curriculum: C/C++, algorithms, shell scripting, web development, and DevOps. Completed intense projects including multi‑threaded servers, 3D graphic engine (miniLibX), Docker orchestration, and full‑stack web apps. Built foundational system design & team collaboration skills.</p>
+    </div>
+    <div class="exp-item">
+      <div class="exp-title">Open Source & Community Contributions</div>
+      <div class="exp-meta"><i class="fab fa-github"></i> 593 contributions last year</div>
+      <p>Active maintainer of personal libraries, constant iteration on side projects and code quality. Focus on building reliable, documented repositories with production-grade patterns.</p>
+    </div>
+  </section>
+
+
+  <!-- Contact & Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="https://github.com/hrizkiou" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/rizkiouih" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <!-- <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a> -->
+      <a href="https://x.com/HamzaRiz2" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p>© 2026 Hamza Rizkioui — Senior Software Engineer | Based in Morocco / remote worldwide</p>
+    <p style="margin-top: 12px; font-size: 0.8rem;"><i class="fas fa-code"></i> built with React mindset · HTML/CSS · available for collaborations</p>
+  </footer>
+</div>
 </body>
 </html>
